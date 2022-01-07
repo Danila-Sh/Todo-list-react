@@ -9,8 +9,8 @@ class App extends React.Component {
     this.state = {
       tasks: [
         {id: 0, texts: "задача 1", interest: 5, done: false},
-        {id: 0, texts: "задача 1", interest: 5, done: false},
-        {id: 0, texts: "задача 1", interest: 5, done: false}
+        {id: 0, texts: "задача 2", interest: 5, done: false},
+        {id: 0, texts: "задача 3", interest: 5, done: false}
 
       ]
     }
@@ -20,14 +20,10 @@ class App extends React.Component {
       return(
       <div className='App'>
         <h1 className= "top">Сегодня</h1>
-
-/*        <ul className='uList'> 
-        <li> Сегодня </li>
-        <li> Все задачи </li>
-        <li> Выполненные </li>
-        <li> Списки </li>
-        </ul>
-*/        
+        {tasks.map(task => (
+        <Task task = {task} key={task.id}></Task>
+        ))}
+ 
 
       </div>
     )
