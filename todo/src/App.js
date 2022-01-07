@@ -9,7 +9,7 @@ class App extends React.Component {
     this.state = {
       tasks: [
         {id: 0, texts: "задача 1", interest: 5, done: false},
-        {id: 0, texts: "задача 2", interest: 5, done: false},
+        {id: 0, texts: "задача 2", interest: 5, done: true},
         {id: 0, texts: "задача 3", interest: 5, done: false}
 
       ]
@@ -17,10 +17,13 @@ class App extends React.Component {
   }
     render() {
       const {tasks} = this.state;
+      const TrueTasks = tasks.filter(task => !tasks.done)
+      const FalseTasks = tasks.filter(task => tasks.done)
+
       return(
       <div className='App'>
         <h1 className= "top">Сегодня</h1>
-        {tasks.map(task => (
+        {[...TrueTasks].map(task => (
         <Task task = {task} key={task.id}></Task>
         ))}
  
